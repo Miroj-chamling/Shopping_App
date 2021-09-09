@@ -9,11 +9,11 @@ class Product {
   bool isFavourite;
 
   Product({
-    @required required this.id,
-    @required required this.title,
-    @required required this.description,
-    @required required this.price,
-    @required required this.imageUrl,
+    @required this.id,
+    @required this.title,
+    @required this.description,
+    @required this.price,
+    @required this.imageUrl,
     this.isFavourite = false,
   });
 }
