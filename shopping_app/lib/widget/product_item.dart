@@ -17,7 +17,7 @@ class ProductItem extends StatelessWidget {
           onTap: () {
             Navigator.of(context).pushNamed(
               ProductDetailScreens.routeName,
-              arguments: id,
+              arguments: title,
             );
           },
           child: Image.network(
@@ -38,7 +38,7 @@ class ProductItem extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(
-            icon: Icon(Icons.shopping_basket),
+            icon: Icon(Icons.shopping_cart_outlined),
             onPressed: () {},
             iconSize: 30,
           ),
