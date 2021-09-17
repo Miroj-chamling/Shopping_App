@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/cart_screen.dart';
 import '../providers/cart.dart';
 import '../screens/product_detail.dart';
 import './screens/product_overview_screen.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'MyaShop',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.deepPurple,
           accentColor: Colors.deepOrange,
           fontFamily: 'Lato',
         ),
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (ctx) => ProductsOverviewScreen(),
           ProductDetailScreens.routeName: (ctx) => ProductDetailScreens(),
+          CartScreen.routeName: (ctx) => CartScreen(),
         },
       ),
     );
