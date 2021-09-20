@@ -7,6 +7,7 @@ import './screens/product_overview_screen.dart';
 import './providers/product.dart';
 import './screens/orders_screen.dart';
 import 'package:provider/provider.dart';
+import './screens/user_product.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'MyaShop',
+        title: 'My Shop',
         theme: ThemeData(
           primarySwatch: Colors.deepPurple,
           accentColor: Colors.deepOrange,
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
           ProductDetailScreens.routeName: (ctx) => ProductDetailScreens(),
           CartScreen.routeName: (ctx) => CartScreen(),
           Orderscreen.routeName: (ctx) => Orderscreen(),
+          UserProductScreen.routeName: (ctx) => UserProductScreen(),
         },
       ),
     );
