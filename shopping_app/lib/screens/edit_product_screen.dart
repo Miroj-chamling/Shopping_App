@@ -45,6 +45,10 @@ class _EditProductScreenState extends State<EditProductScreen> {
   }
 
   void _saveform() {
+    final isValid = _form.currentState.validate();
+    if (!isValid) {
+      return;
+    }
     _form.currentState.save();
     print(_editedProduct.title);
   }
@@ -83,6 +87,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     imageUrl: _editedProduct.imageUrl,
                   );
                 },
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please enter a value';
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Price'),
@@ -101,6 +111,18 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     imageUrl: _editedProduct.imageUrl,
                   );
                 },
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please Enter a value';
+                  }
+                  if (double.tryParse(value) == null) {
+                    return 'Please enter a valid number';
+                  }
+                  if (double.parse(value) <= 0) {
+                    return 'Please enter a number greater than zero';
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 decoration: InputDecoration(
@@ -117,6 +139,15 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     price: _editedProduct.price,
                     imageUrl: _editedProduct.imageUrl,
                   );
+                },
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please enter a value';
+                  }
+                  if (value.length < 30) {
+                    return 'Please provide more information';
+                  }
+                  return null;
                 },
               ),
               Row(
