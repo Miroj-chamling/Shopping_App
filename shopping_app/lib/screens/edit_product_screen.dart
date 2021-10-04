@@ -22,11 +22,24 @@ class _EditProductScreenState extends State<EditProductScreen> {
     price: 0,
     imageUrl: '',
   );
+  var _isInit = true;
+
   @override
   void initState() {
     // TODO: implement initState
     _imageUrlFocusNode.addListener(_updateImageUrl);
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (_isInit) {
+      final productId = ModalRoute.of(context).settings.arguments as String;
+      _editedProduct =
+          Provider.of<Products>(context, listen: false).findById(productId);
+    }
+    _isInit = false;
+    super.didChangeDependencies();
   }
 
   //this is to dispose the focus node to avoid memory leaks
